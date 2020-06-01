@@ -35,7 +35,7 @@ paths:
           schema:
             $ref: '#/definitions/TextSO'
       responses:
-        200:
+        201:
           description: Success
         500:
           description: Internal server error

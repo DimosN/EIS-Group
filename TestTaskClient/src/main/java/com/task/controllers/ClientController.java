@@ -34,6 +34,12 @@ public class ClientController {
     @Autowired
     private SentenceService sentenceService;
 
+    /**
+     * Sends word to Kafka.
+     *
+     * @param textSO - JSON-object with text ({"text":...})
+     * @return HTTP code 201, if word was sent successfully, 500 - otherwise
+     */
     @RequestMapping(value = "/words/send", method = RequestMethod.POST)
     public ResponseEntity<Void> sendWord(@RequestBody TextSO textSO) {
         try {
@@ -45,6 +51,11 @@ public class ClientController {
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
+    /**
+     * Searches sentences by search string (if it's empty, all sentences are returned)
+     *
+     * @return list of sentences
+     */
     @RequestMapping(value = "/sentences", method = RequestMethod.GET)
     public List<TextSO> getSentences(@RequestParam(value = "searchString", required = false) String searchString) {
         List<TextSO> results = sentenceService.getSentences(searchString);

@@ -10,6 +10,8 @@ public class TextSO {
 
     private String text;
 
+    public TextSO() {}
+
     public TextSO(Sentence sentence) {
         this.text = sentence.getText();
     }
