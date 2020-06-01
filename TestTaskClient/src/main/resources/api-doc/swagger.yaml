@@ -1,0 +1,48 @@
+---
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Words/sentences client REST API
+
+basePath: /api
+
+paths:
+  /v1/sentences:
+    #ClientController.getSentences(String)
+    get:
+      summary: Searches sentences by search string(if it's empty, all sentences are returned)
+      parameters:
+        - name: searchString
+          description: Search string which should be contained by result sentences
+          in: query
+          type: string
+          required: false
+      responses:
+        200:
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TextSO'
+
+  /v1/words/send:
+    #ClientController.sendWord(TextSO)
+    post:
+      summary: Sends word to Kafka
+      parameters:
+        - name: textSO
+          in: body
+          schema:
+            $ref: '#/definitions/TextSO'
+      responses:
+        200:
+          description: Success
+        500:
+          description: Internal server error
+
+definitions:
+  TextSO:
+    type: object
+    properties:
+      text:
+        type: string
