@@ -16,6 +16,9 @@ import com.task.services.SentenceService;
 import com.task.services.WordService;
 
 /**
+ * Controller with client endpoints.
+ * See file resources/api-doc/swagger.yaml for description.
+ *
  * @author Dmitry Novikov
  * @since 2020-05-31
  */
