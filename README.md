@@ -1,4 +1,4 @@
-##Test  task
+## Test  task
 
 This project is a system consisting of 2 microservices. First microservice is a `Client` which accepts words through API and publishes them to message queue(Kafka). Second microservice(`Processor`) consumes messages from messaging queue and joins all words that are received in one minute to a sentence, then posts back this sentence to message queue. Client in its turn receives these sentences from the message queue and stores them in NoSQL Database(Cassandra). Also Client exposes service to perform a search.
 
